@@ -7,15 +7,15 @@
 //
 
 #import "ViewController.h"
-
+#import "ZigZagLineView.h"
 @interface ViewController (){
     UIScrollView *scrollView;
-    UIView *fv;
-    UIView *sv;
-    UIView *tv;
+    ZigZagLineView *fv;
+    ZigZagLineView *sv;
+    ZigZagLineView *tv;
     
-    UIView *toCheck;
-    UIView *toChangePosition;
+    ZigZagLineView *toCheck;
+    ZigZagLineView *toChangePosition;
     
     
     
@@ -32,23 +32,23 @@
     [[UIScrollView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/4, self.view.frame.size.height/4, self.view.frame.size.width/2, self.view.frame.size.height/2)];
     scrollView.contentSize = CGSizeMake(self.view.frame.size.width/2, 3*self.view.frame.size.height/2);
     scrollView.contentOffset = CGPointMake(0, 0);
-    scrollView.showsVerticalScrollIndicator = true;
+    scrollView.showsVerticalScrollIndicator = false;
     scrollView.showsHorizontalScrollIndicator = false;
     scrollView.pagingEnabled = false;
     scrollView.backgroundColor = [UIColor whiteColor];
     scrollView.delegate = self;
     
-    fv = [[UIView alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width/2-10, self.view.frame.size.height/2-10)];
+    fv = [[ZigZagLineView alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width/2-10, self.view.frame.size.height/2-10)];
     fv.backgroundColor = [UIColor greenColor];
     CGRect fvr = fv.frame;
     fvr.origin.y +=self.view.frame.size.height/2-10;
-    sv = [[UIView alloc] initWithFrame:fvr];
+    sv = [[ZigZagLineView alloc] initWithFrame:fvr];
     
     sv.backgroundColor = [UIColor purpleColor];
     
     CGRect svr = sv.frame;
     svr.origin.y +=self.view.frame.size.height/2-10;
-    tv = [[UIView alloc] initWithFrame:svr];
+    tv = [[ZigZagLineView alloc] initWithFrame:svr];
     
     tv.backgroundColor = [UIColor redColor];
     
@@ -56,7 +56,11 @@
     [scrollView addSubview:fv];
     [scrollView addSubview:sv];
     [scrollView addSubview:tv];
-
+    
+    [fv setNeedsDisplay];
+    [sv setNeedsDisplay];
+    [tv setNeedsDisplay];
+    
     toCheck = tv;
     toChangePosition = fv;
     
@@ -69,16 +73,13 @@
     CGRect container = CGRectMake(sview.contentOffset.x, sview.contentOffset.y, sview.frame.size.width, sview.frame.size.height);
     if(CGRectIntersectsRect(thePosition, container))
     {
-        
-        
         CGRect r = toCheck.frame;
         r.origin.y +=self.view.frame.size.height/2-10;
         toChangePosition.frame= r;
+        [toChangePosition setNeedsDisplay];
 
         toCheck =toChangePosition;
 
-        
-        
        if(toChangePosition == fv)
            toChangePosition = sv;
         else if (toChangePosition == sv)
@@ -86,7 +87,7 @@
         else if(toChangePosition == tv)
             toChangePosition = fv;
     
-        scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, scrollView.contentSize.height);
+        scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, scrollView.contentSize.height+self.view.frame.size.height/2);
 
     }
     

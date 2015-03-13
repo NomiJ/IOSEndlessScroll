@@ -14,6 +14,7 @@
 		F8C03BF21AB23C4000B29C9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8C03BF11AB23C4000B29C9B /* Images.xcassets */; };
 		F8C03BF51AB23C4000B29C9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8C03BF31AB23C4000B29C9B /* LaunchScreen.xib */; };
 		F8C03C011AB23C4000B29C9B /* zigzagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C03C001AB23C4000B29C9B /* zigzagTests.m */; };
+		F8C03C0F1AB265ED00B29C9B /* ZigZagLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C03C0D1AB265ED00B29C9B /* ZigZagLineView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		F8C03BFA1AB23C4000B29C9B /* zigzagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zigzagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C03BFF1AB23C4000B29C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8C03C001AB23C4000B29C9B /* zigzagTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zigzagTests.m; sourceTree = "<group>"; };
+		F8C03C0D1AB265ED00B29C9B /* ZigZagLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZigZagLineView.m; sourceTree = "<group>"; };
+		F8C03C0E1AB265ED00B29C9B /* ZigZagLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZigZagLineView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 		F8C03BE31AB23C4000B29C9B /* zigzag */ = {
 			isa = PBXGroup;
 			children = (
+				F8C03C0D1AB265ED00B29C9B /* ZigZagLineView.m */,
+				F8C03C0E1AB265ED00B29C9B /* ZigZagLineView.h */,
 				F8C03BE81AB23C4000B29C9B /* AppDelegate.h */,
 				F8C03BE91AB23C4000B29C9B /* AppDelegate.m */,
 				F8C03BEB1AB23C4000B29C9B /* ViewController.h */,
@@ -221,6 +226,7 @@
 			files = (
 				F8C03BED1AB23C4000B29C9B /* ViewController.m in Sources */,
 				F8C03BEA1AB23C4000B29C9B /* AppDelegate.m in Sources */,
+				F8C03C0F1AB265ED00B29C9B /* ZigZagLineView.m in Sources */,
 				F8C03BE71AB23C4000B29C9B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +420,7 @@
 				F8C03C061AB23C4000B29C9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8C03C071AB23C4000B29C9B /* Build configuration list for PBXNativeTarget "zigzagTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +429,7 @@
 				F8C03C091AB23C4000B29C9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

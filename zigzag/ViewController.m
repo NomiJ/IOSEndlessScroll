@@ -64,6 +64,10 @@
     toCheck = tv;
     toChangePosition = fv;
     
+    
+    CGAffineTransform t = CGAffineTransformMakeScale(1, 1);
+    scrollView.transform = CGAffineTransformRotate(t, M_PI);
+    
     [self.view addSubview:scrollView];
     
 }
